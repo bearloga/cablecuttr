@@ -1,0 +1,22 @@
+Package: cablecuttr
+Type: Package
+Title: A CanIStream.It API wrapper
+Version: 0.0.0.9000
+Date: 2016-10-24
+Authors@R: person("Mikhail", "Popov", email = "mikhail@mpopov.com",
+                  role = c("aut", "cre"), comment = "@bearloga on Twitter")
+Maintainer: Mikhail Popov <mikhail@mpopov.com>
+Description: A wrapper for the CanIStream.It API for searching across the most
+    popular streaming, rental, and purchase services to find where a movie is
+    available.
+Depends:
+    R (>= 3.0.0)
+Imports:
+    httr,
+    jsonlite
+URL: https://github.com/bearloga/cablecuttr
+BugReports: https://github.com/bearloga/cablecuttr/issues
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 5.0.1
