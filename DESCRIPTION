@@ -1,8 +1,8 @@
 Package: cablecuttr
 Type: Package
 Title: A CanIStream.It API wrapper
-Version: 0.0.0.9000
-Date: 2016-10-24
+Version: 0.1.0
+Date: 2016-10-25
 Authors@R: person("Mikhail", "Popov", email = "mikhail@mpopov.com",
                   role = c("aut", "cre"), comment = "@bearloga on Twitter")
 Maintainer: Mikhail Popov <mikhail@mpopov.com>
