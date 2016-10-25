@@ -1,4 +1,4 @@
-cablecuttr 0.0.9
+cablecuttr 0.1.0
 ----------------
 
 ## Test environments

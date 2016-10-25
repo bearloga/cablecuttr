@@ -1,4 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^CONDUCT\.md$
 ^cran-comments\.md$
+^README.Rmd
+^NEWS\.md$
+^CONDUCT\.md$
