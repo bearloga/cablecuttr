@@ -15,16 +15,17 @@ devtools::install_github("bearloga/cablecuttr")
 
 ## Usage
 
-You can look up streaming/rental/etc. options for a movie by using `can_i_stream_it()`, which requires the movie's title and the media type:
+You can look up streaming/rental/purchase/etc. options for a movie by using `can_i_stream_it()`, which requires the movie's title and the media type:
 
 ```R
-can_i_stream_it("Coraline")
-# Found a movie matching 'Coraline': Coraline (2009)
+can_i_stream_it("Love Actually", "streaming")
+# Found more than one movie matching 'Love Actually'
+# Defaulting to first result: Love Actually (2003) [4e79a720f5f8071e7e000000]
 ```
 
-|friendly_name         | external_id| price|direct_url                                                            |short_url                                             |last_checked        |
-|:---------------------|-----------:|-----:|:---------------------------------------------------------------------|:-----------------------------------------------------|:-------------------|
-|Apple iTunes Purchase |   308771950|  6.99|https://itunes.apple.com/us/movie/coraline/id308771950?uo=4&at=10lcsB |http://canistream.it/link/go/4f5296e4f5f807e85400002b |2016-10-24 19:57:06 |
+|friendly_name   |external_id | price|direct_url                                          |short_url                                             |last_checked        |
+|:---------------|:-----------|-----:|:---------------------------------------------------|:-----------------------------------------------------|:-------------------|
+|Netflix Instant |60031262    |     0|http://dvd.netflix.com/Movie/Love-Actually/60031262 |http://canistream.it/link/go/5237a5b1f5f807362d000000 |2016-10-24 15:34:59 |
 
 Behind the scenes, it uses `find_movie()` to fetch the movie's ID. In case of multiple matches, it defaults to the first result. You can call it directly:
 
