@@ -1,4 +1,4 @@
-#' @title cablecuttr: A CanIStream.It API wrapper
+#' @title cablecuttr: A CanIStream.It API Wrapper
 #' @description An R wrapper for the \href{http://www.canistream.it/}{CanIStream.It}
 #'   API for searching across the most popular streaming, rental, and purchase
 #'   services to find where a movie is available.
