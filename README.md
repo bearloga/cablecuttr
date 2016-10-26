@@ -64,5 +64,5 @@ can_i_stream_id("4eb01c45f5f807f733000003", "purchase")
 
 ## Code of Conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](https://github.com/bearloga/cablecuttr/blob/master/CONDUCT.md). By participating in this project you agree to abide by its terms.
 
