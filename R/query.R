@@ -1,5 +1,5 @@
 #' @title Search for movies by title
-#' @description You can use this to find the exact ID of the moive you are
+#' @description You can use this to find the exact ID of the movie you are
 #'   interested in, in case there are multiple remakes or if you only know
 #'   a part of the movie's title.
 #' @details The API is a bit slow/unreliable, so if you get a HTTP 504 error,
