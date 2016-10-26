@@ -1,6 +1,10 @@
 # cablecuttr
 An R wrapper for CanIStream.It API
 
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/cablecuttr)](https://cran.r-project.org/package=cablecuttr)
+[![CRAN Total Downloads](https://cranlogs.r-pkg.org/badges/grand-total/cablecuttr)](https://cran.rstudio.com/web/packages/cablecuttr/index.html)
+
 [CanIStream.It](http://www.canistream.it/) is a free service created by [Urban Pixels](http://www.urbanpixels.com/) that allows you to search across the most popular streaming, rental, and purchase services to find where a movie is available.
 
 ## Installation
