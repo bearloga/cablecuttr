@@ -5,6 +5,10 @@ An R wrapper for CanIStream.It API
 
 ## Installation
 
+```R
+install.packages("cablecuttr")
+```
+
 To use the development version:
 
 ```R
