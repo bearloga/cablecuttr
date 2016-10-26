@@ -28,7 +28,7 @@ A data.frame of search results with the following columns:
 }
 }
 \description{
-You can use this to find the exact ID of the moive you are
+You can use this to find the exact ID of the movie you are
   interested in, in case there are multiple remakes or if you only know
   a part of the movie's title.
 }

@@ -42,19 +42,17 @@ find_movie <- function(movie_name, user_agent = NULL, offline = FALSE) {
       ),
       httr::user_agent(user_agent)
     )
-    httr::stop_for_status(response)
-    if (httr::http_type(response) != "application/json") {
-      stop("API did not return json", call. = FALSE)
-    }
     if (httr::http_error(response)) {
       stop(
         sprintf(
-          "CanIStream.It API request failed (%s)\n%s",
-          httr::status_code(response),
-          httr::http_status(response)
+          'CanIStream.It API request for "%s" failed (%s)\n%s',
+          movie_name, httr::status_code(response), httr::http_status(response)
         ),
         call. = FALSE
       )
+    }
+    if (httr::http_type(response) != "application/json") {
+      stop("API did not return JSON", call. = FALSE)
     }
     result <- as.data.frame(jsonlite::fromJSON(httr::content(response, "text", type = "application/json", encoding = "UTF-8"), simplifyDataFrame = TRUE, flatten = TRUE))
   }
@@ -110,10 +108,10 @@ NULL
 #' @export
 can_i_stream_id <- function(movie_id, media_type = c("streaming", "rental", "purchase", "dvd", "xfinity"), user_agent = NULL, offline = FALSE) {
   if (!media_type[1] %in% c("streaming", "rental", "purchase", "dvd", "xfinity")) {
-    stop("unacceptable media type")
+    stop("Unacceptable media type")
   }
   if (length(movie_id) > 1) {
-    warning("Cannot process more than one movie ID. Looking up just the first one.")
+    warning("Cannot process more than one movie ID. Looking up just the first one...")
     movie_id <- movie_id[1]
   }
   if (offline) {
@@ -133,24 +131,22 @@ can_i_stream_id <- function(movie_id, media_type = c("streaming", "rental", "pur
       ),
       httr::user_agent(user_agent)
     )
-    httr::stop_for_status(response)
-    if (httr::http_type(response) != "application/json") {
-      stop("API did not return json", call. = FALSE)
-    }
     if (httr::http_error(response)) {
       stop(
         sprintf(
-          "CanIStream.It API request failed (%s)\n%s",
-          httr::status_code(response),
-          httr::http_status(response)
+          "CanIStream.It API request for movie #%s failed (%s)\n%s",
+          movie_id, httr::status_code(response), httr::http_status(response)
         ),
         call. = FALSE
       )
     }
+    if (httr::http_type(response) != "application/json") {
+      stop("API did not return JSON", call. = FALSE)
+    }
     results <- jsonlite::fromJSON(httr::content(response, "text", type = "application/json", encoding = "UTF-8"), simplifyVector = FALSE)
   }
   if (length(results) == 0) {
-    message("Movie #", movie_id, " is not available via ", media_type[1], ".")
+    message("Movie #", movie_id, " is not available via ", media_type[1])
     return(empty_services())
   }
   output <- do.call(rbind, lapply(results, function(result) {
@@ -180,17 +176,18 @@ can_i_stream_id <- function(movie_id, media_type = c("streaming", "rental", "pur
 #' @export
 can_i_stream_it <- function(movie_name, media_type = c("streaming", "rental", "purchase", "dvd", "xfinity"), user_agent = NULL, offline = FALSE) {
   if (!media_type[1] %in% c("streaming", "rental", "purchase", "dvd", "xfinity")) {
-    stop("unacceptable media type")
+    stop("Unacceptable media type")
   }
   movies <- find_movie(movie_name, offline = offline)
   if (nrow(movies) == 0) {
-    warning("Could not find the ID of the movie '", movie_name, "'")
+    warning('Could not find any movies matching "', movie_name, '"')
     return(empty_services())
   } else if (nrow(movies) > 1) {
-    message("Found more than one movie matching '", movie_name, "'")
-    message("Defaulting to first result: ", movies$title[1], " (", movies$year[1], ") [", movies$movie_id[1],"]")
+    message('Found more than one movie matching "', movie_name, '"')
+    message("Defaulting to first result: ", movies$title[1], " (", movies$year[1], ") - #", movies$movie_id[1],"")
+    message('Use find_movie("', movie_name, '") with can_i_stream_id() to be exact')
   } else {
-    message("Found a movie matching '", movie_name, "': ", movies$title[1], " (", movies$year[1], ")")
+    message('Found a movie matching "', movie_name, '": ', movies$title[1], " (", movies$year[1], ")")
   }
   return(can_i_stream_id(movies$movie_id[1], media_type, offline = offline))
 }
