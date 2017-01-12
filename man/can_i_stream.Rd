@@ -10,7 +10,7 @@ can_i_stream_id(movie_id, media_type = c("streaming", "rental", "purchase",
   "dvd", "xfinity"), user_agent = NULL, offline = FALSE)
 
 can_i_stream_it(movie_name, media_type = c("streaming", "rental", "purchase",
-  "dvd", "xfinity"), user_agent = NULL, offline = FALSE)
+  "dvd", "xfinity"), user_agent = NULL)
 }
 \arguments{
 \item{movie_id}{The movie's ID, found by running \code{\link{find_movie}}}
@@ -56,18 +56,13 @@ The API is a bit slow/unreliable, so if you get a HTTP 504 error,
 \item \code{can_i_stream_it}: Query CanIStream.It by movie name and media type
 }}
 \examples{
-
-# Use a saved JSON response for 'Groundhog Day'
-can_i_stream_id("4eb0173df5f8079d29000002", "purchase", offline = TRUE)
-
+can_i_stream_id("4eb0173df5f8079d29000002", "purchase")
 \dontrun{
   movie_id <- find_movie("The Babadook")$movie_id
   can_i_stream_id(movie_id, "streaming")
 }
-# Use a saved JSON response for 'Groundhog Day'
-can_i_stream_it("Groundhog Day", "purchase", offline = TRUE)
 \dontrun{
-  can_i_stream_it("A Girl Walks Home Alone At Night")
+  can_i_stream_it("Tinker Tailor Soldier Spy")
 }
 }
 

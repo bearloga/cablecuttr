@@ -33,38 +33,37 @@ can_i_stream_it("Love Actually", "streaming")
 
 |friendly_name   |external_id | price|direct_url                                          |short_url                                             |last_checked        |
 |:---------------|:-----------|-----:|:---------------------------------------------------|:-----------------------------------------------------|:-------------------|
-|Netflix Instant |60031262    |     0|http://dvd.netflix.com/Movie/Love-Actually/60031262 |http://canistream.it/link/go/5237a5b1f5f807362d000000 |2016-10-24 15:34:59 |
+|Netflix Instant |60031262    |     0|http://dvd.netflix.com/Movie/Love-Actually/60031262 |http://canistream.it/link/go/5237a5b1f5f807362d000000 |2017-01-12 15:24:57 |
 
 Behind the scenes, it uses `find_movie()` to fetch the movie's ID. In case of multiple matches, it defaults to the first result. You can call it directly:
 
 ```R
-find_movie("Muppets")[, c("title", "year", "movie_id")]
+find_movie("Toy Story")[, c("title", "year", "movie_id")]
 ```
 
-|title                                 | year|movie_id                 |
-|:-------------------------------------|----:|:------------------------|
-|Muppets Most Wanted                   | 2014|52c365f8f5f8070c3d01e737 |
-|The Muppets                           | 2011|4eb0469bf5f807b40f000000 |
-|Muppets From Space                    | 1999|4eb05831f5f807536d000004 |
-|A Muppet Family Christmas             | 1987|4eb0469bf5f807b40f000001 |
-|The Muppet Christmas Carol            | 1992|4eb01c45f5f807f733000003 |
-|Muppet Treasure Island                | 1996|4eb011bef5f807021e000003 |
-|The Muppet Movie                      | 1979|4eb0469bf5f807b40f000002 |
-|The Muppets Take Manhattan            | 1984|4eb034caf5f8075a59000010 |
-|The Great Muppet Caper                | 1981|4eb0603bf5f807511d000000 |
-|Muppets: The Tale of the Bunny Picnic | 1992|54b7507ba3f5ec1507b6c06c |
+|title                      | year|movie_id                 |
+|:--------------------------|----:|:------------------------|
+|Toy Story                  | 1995|4eb04731f5f807d30f000012 |
+|Toy Story 2                | 1999|4eb04731f5f807d30f000011 |
+|Toy Story of Terror!       | 2013|52507c01f5f807682d000004 |
+|Toy Story of Terror!       | 2013|52768d6951cf33b20f73791c |
+|Toy Story That Time Forgot | 2014|5474f881a3f5ec3f71b6c06b |
+|Toy Story 3                | 2010|4eb044b8f5f807167c00000e |
+|A Syrian Love Story        | 2015|55f8a7d2f5f807cd2cbb379f |
 
 And then pick a specific **movie_id** to give to `can_i_stream_id()`:
 
 ```R
-# The Muppet Christmas Carol (1992)
-can_i_stream_id("4eb01c45f5f807f733000003", "purchase")
+# Toy Story (1995)
+can_i_stream_id("4eb04731f5f807d30f000012", "rental")
 ```
 
-|friendly_name         |external_id       | price|direct_url                                                                                                  |short_url                                             |last_checked        |
-|:---------------------|:-----------------|-----:|:-----------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-------------------|
-|Apple iTunes Purchase |206329718         |  9.99|https://itunes.apple.com/us/movie/the-muppet-christmas-carol/id206329718?uo=4&at=10lcsB                     |http://canistream.it/link/go/509f1c78f5f807032b000000 |2016-10-25 12:32:07 |
-|Google Play Purchase  |movie-VDFltsFgShc |  9.99|https://play.google.com/store/movies/details/The_Muppet_Christmas_Carol?id=VDFltsFgShc&PAffiliateID=100l3vd |http://canistream.it/link/go/50802738f5f807e648000002 |2016-10-25 12:31:53 |
+|friendly_name       |external_id       |price |direct_url                                                                                 |short_url                                             |last_checked        |
+|:-------------------|:-----------------|:-----|:------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-------------------|
+|Amazon Video Rental |B005ZMV2EQ        |2.99  |https://www.amazon.com/Toy-Story-Tim-Allen/dp/B005ZMV2EQ                                   |http://canistream.it/link/go/4f1f34a7f5f807dd3d000023 |2017-01-12 11:38:23 |
+|Apple iTunes Rental |188703840         |2.99  |https://itunes.apple.com/us/movie/toy-story/id188703840?uo=4&at=10lcsB                     |http://canistream.it/link/go/4f1f34a8f5f807dd3d000024 |2017-01-12 11:38:25 |
+|Youtube Rental      |c3986gGp3Qs       |2.99  |https://www.youtube.com/watch?v=c3986gGp3Qs                                                |http://canistream.it/link/go/4f1b791cf5f807e74f000026 |2017-01-12 11:38:24 |
+|Google Play Rental  |movie-c3986gGp3Qs |2.99  |https://play.google.com/store/movies/details/Toy_Story?id=c3986gGp3Qs&PAffiliateID=100l3vd |http://canistream.it/link/go/4f47f373f5f807665b000015 |2017-01-12 11:38:24 |
 
 ## Code of Conduct
 

@@ -4,27 +4,28 @@
 \alias{find_movie}
 \title{Search for movies by title}
 \usage{
-find_movie(movie_name, user_agent = NULL, offline = FALSE)
+find_movie(movie_name, user_agent = NULL)
 }
 \arguments{
 \item{movie_name}{The title of the movie to search for}
 
 \item{user_agent}{Allows specification of custom UA}
-
-\item{offline}{A logical flag to simulate the API request}
 }
 \value{
 A data.frame of search results with the following columns:
 \describe{
-  \item{title}{The movie's title}
   \item{movie_id}{The movie's ID}
+  \item{title}{The movie's title}
+  \item{year}{The movie's year}
   \item{description}{The movie's description}
   \item{rating}{The movie's rating}
+  \item{mpaa_rating}{The movie's rating by Motion Pictures Association of America}
+  \item{duration}{The duration of the movie (in minutes)}
   \item{image}{The url of the movie art}
   \item{image_last_checked}{A datetime the movie art was last checked for}
   \item{url_canistreamit}{The movie's page on \href{http://www.canistream.it/}{CanIStream.It}}
   \item{url_rottentomatoes}{The movie's page on \href{https://www.rottentomatoes.com/}{Rotten Tomatoes}}
-  \item{url_imdb}{The movie's page on \href{http://www.imdb.com/}{IMDB}}
+  \item{url_imdb}{The movie's page on \href{http://www.imdb.com/}{IMDB}},
 }
 }
 \description{
@@ -37,10 +38,8 @@ The API is a bit slow/unreliable, so if you get a HTTP 504 error,
   just re-run the call.
 }
 \examples{
-# Use a saved JSON response for 'Groundhog Day'
-find_movie("Groundhog Day", offline = TRUE)
 \dontrun{
-  find_movie("Finding Nemo")
+  find_movie("Love Actually")
 }
 }
 
