@@ -1,6 +1,10 @@
 cablecuttr 0.1.1
 ----------------
 
+This is a resubmission. It addresses the following:
+- Puts 'CanIStream.It' in single quotes in Description
+- Adds URL for more information in Description
+
 ## Test environments
 * local OS X install, R 3.3.2
 * win-builder (devel and release)
@@ -12,8 +16,7 @@ There were no ERRORs or WARNINGs and 1 NOTE:
 Maintainer: 'Mikhail Popov <mikhail@mpopov.com>'
 
 Possibly mis-spelled words in DESCRIPTION:
-  API (3:24, 9:46)
-  CanIStream (3:10, 9:32)
+  API
 ```
 
 ## R-hub Builder results
