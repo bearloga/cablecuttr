@@ -16,9 +16,8 @@ install.packages("cablecuttr")
 To use the development version:
 
 ```R
-if ( !('devtools' %in% installed.packages()) ) install.packages("devtools")
-
-devtools::install_github("bearloga/cablecuttr")
+# install.packages("remotes")
+remotes::install_github("bearloga/cablecuttr")
 ```
 
 ## Usage
